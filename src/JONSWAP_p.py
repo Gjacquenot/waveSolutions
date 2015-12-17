@@ -1,10 +1,10 @@
 from math import pi
-""" 
+"""
 Input parameters for simulating both Linear and
-weakly (as well as fully) nonlinear directional 
-water waves. """    
+weakly (as well as fully) nonlinear directional
+water waves. """
 
-# Initial Discretization of the grid is: 2^npw1 x 2^npw1 
+# Initial Discretization of the grid is: 2^npw1 x 2^npw1
 npw1 = 7
 npw2 = 7
 
@@ -38,7 +38,7 @@ gamma = 3.3
 nspread = 2.0
 # (if =1 then thetam in range [0,pi/2],  or if =2,4,8,16,32,... then keep thetam=pi/2)
 
-# Angular Spread  
+# Angular Spread
 thetam = pi/2.0
 
 # Initial filter (keep it =0 as default, or =1 to set as Trulsent et al. for mNLS)

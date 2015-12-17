@@ -29,14 +29,14 @@ PURPOSE:  This Python script is designed to set up and initalize the wave
           field via a JONSWAP spectrum and for both directionally confined and
           and directional varied distribution.
           Will serve as input for simulating linear and eventually weakly nonlinear
-          random surface water waves in realistic settings. 
+          random surface water waves in realistic settings.
 
           The module imports JONSWAP_p.py (p = physics), where all the input
-          parameters are specified. 
+          parameters are specified.
 
 INPUT:    Phyical parameters from JONSWAP_p.py
 
-Self NOTE: for FFT your transforming function needs to be periodic on your 
+Self NOTE: for FFT your transforming function needs to be periodic on your
            domain and do NOT make your first and final point in the domain equal!
            ... i.e. for sin(x) do NOT make x=[0,2*pi], but instead x=[dx,2*pi]!
 
@@ -55,7 +55,7 @@ LAST UPDATE: January 14, 2014
     Ly = abs(JS.y1e - JS.y1b)
     kc_x = 2*pi/Lx
     kc_y = 2*pi/Ly              # std. wave factors if modes would be integers
-    kc_x_modes = Nx*kc_x        
+    kc_x_modes = Nx*kc_x
     kc_y_modes = Ny*kc_y        # wave factors for modes obtained from fftfreq()
 
     modes_x = np.fft.fftfreq(Nx)    # Fourier mode alignments
@@ -72,7 +72,7 @@ LAST UPDATE: January 14, 2014
 
     # (DISREGARD FOR NOW) - Imposing iniitial circular zero-pad filter
     if JS.filter == 1:
-        spectrum[ 2*floor(kp/kc_x)+1 : (Nx-1)-2*floor(kp/kc_x), 2*floor(kp/kc_x)+1 : (Ny-1)-2*floor(kp/kc_x) ] = 0.0 + 0.0j 
+        spectrum[ 2*floor(kp/kc_x)+1 : (Nx-1)-2*floor(kp/kc_x), 2*floor(kp/kc_x)+1 : (Ny-1)-2*floor(kp/kc_x) ] = 0.0 + 0.0j
     else:
         pass
 
@@ -92,11 +92,11 @@ LAST UPDATE: January 14, 2014
         # Attaching 3D axis to the figure
         fig = plt.figure()
         ax = p3.Axes3D(fig)
-        
+
         x = np.linspace(JS.x1b, JS.x1e, Nx)
         y = np.linspace(JS.y1b,JS.y1e, Ny)
         [xx, yy] = np.meshgrid(x, y)
-        
+
         #surf = ax.plot_surface(xx,yy,surface,rstride=2,cstride=2, cmap=cm.jet,
         #    linewidth=0.5, antialiased=False)
         ax.plot_wireframe(xx,yy,surface, rstride=4, cstride=4)
